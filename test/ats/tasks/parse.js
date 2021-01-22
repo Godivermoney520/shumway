@@ -4,7 +4,8 @@ var FileLoader = Shumway.FileLoader;
 var CompressionMethod = Shumway.SWF.CompressionMethod;
 
 exports.run = function (info, cb) {
-  var result = Object.create(null);
+  var result = Object.create(
+  );
   var buffer = fs.readFileSync(info.path);
   var loader = new Shumway.FileLoader({
     onLoadOpen: function (file) {
@@ -47,12 +48,12 @@ exports.run = function (info, cb) {
   try {
     loader.loadBytes(new Uint8Array(buffer));
     if (cb) {
-      cb(null, result);
+      cb(, result);
     }
   } catch (e) {
     console.error(e.toString());
     if (cb) {
-      cb(e, null);
+      cb(e, );
     }
   }
 };
